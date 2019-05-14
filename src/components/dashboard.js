@@ -66,9 +66,8 @@ class ConnectedDashboard extends React.Component {
 
     constructor(props) {
         super(props);
-        var stocks = this.props.stocks;
         // debugger;
-        // console.log('PROPS IN DASHBOARD = =====', stocks);
+        // console.log('PROPS IN DASHBOARD = =====', this.props.stocks);
     }
 
     render() {
@@ -89,11 +88,12 @@ class ConnectedDashboard extends React.Component {
             // console.log('prices =====',stockPrices);
 
         }
-
-
         return (
-            <Paper>
-                <Table>
+        
+
+
+            
+                 <Table>
                     <TableHead>
                         <TableRow>
                             <TableCell>Stocks</TableCell>
@@ -101,14 +101,21 @@ class ConnectedDashboard extends React.Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                       <TableRow>
-                           <TableCell>
-                           <StockRow />
-                           </TableCell>
-                       </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                {Object.keys(stocksObj).map((stockName, index) => {
+                                    let stockPrice = stocksObj[stockName];
+                                    return (
+                                        <StockRow key={index} stockName={stockName}
+                                            stockPrice={stockPrice}
+                                        />
+                                    )
+                                })}
+                            </TableCell>
+                        </TableRow>
                     </TableBody>
                 </Table>
-            </Paper>
+            
 
         );
     }
