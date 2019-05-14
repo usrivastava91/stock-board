@@ -2,15 +2,19 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import openSocket from 'socket.io-client';
-
+import { connect } from 'react-redux';
+import { getStocks } from './store/actions';
+import Dashboard from './components/dashboard';
+import Button from '@material-ui/core/Button';
 // const socket = openSocket('ws://stocks.mnet.website');
-class App extends React.Component {
+
+const mapStateToProps = state => {
+  return { stocks: state.stocks };
+}
+class ConnectedApp extends React.Component {
 
   constructor(props) {
     super(props);
-    // socket.on('message', (message) => {
-    //   console.log('RECIEVING ============', message)
-    // })
   }
   componentDidMount = () => {
     this.connection = new WebSocket('ws://stocks.mnet.website');
@@ -19,29 +23,31 @@ class App extends React.Component {
   }
 
   connectionworking = (message) => {
-console.log('RECIEVING ============', message.data)
+
+    var stocksObj = {};
+    var stocksArr =  JSON.parse(message.data);
+    // console.log('raw array ============>', stocksArr)
+    // stocksArr.forEach(arr => {
+    //   stocksObj[arr[0]] = arr[1];
+    // });
+
+    // console.log('RECIEVED IN ============>', stocksObj)
+    // var result = Object.keys(stocksObj).map(function(key) {
+    //   return [String(key), stocksObj[key]];
+    // });
+    // console.log('RECIEVED IN ============>', stocksObj)
+    this.props.getStocks(stocksArr)
+
   }
 
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        </header>
-      </div>
+      <Dashboard stocks = {this.stocksObj}/>
     );
   }
 }
+
+const App = connect(mapStateToProps, { getStocks })(ConnectedApp);
 
 export default App;
