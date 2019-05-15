@@ -1,4 +1,4 @@
-.containerDiv {
+.container-div {
     display: flex;
     align-items : center;
     justify-content: center;    
@@ -9,7 +9,6 @@
     max-height: 80vh;
     overflow-y: scroll !important; 
     margin-top: 10vh;
-    font-family: 'Roboto Mono', monospace;
 }
 
 .font-robot-mono {
@@ -27,3 +26,10 @@
 
 }
 
+.enable-script-prompt {
+    width: 500px;
+    margin-top: 50px;
+    padding: 20px;
+    font-family: 'Roboto Mono', monospace;
+    background: #F7F7F7;
+}

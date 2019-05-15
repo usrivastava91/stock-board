@@ -1,7 +1,13 @@
+//React imports
 import React from 'react';
+
+//Material UI components imports
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import './dashboard.css'
+
+//MISC
+import './component-styles.css'
+
 const StockRow = ((props) => {
     return (
         <TableRow>

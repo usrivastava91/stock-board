@@ -1,37 +1,31 @@
+//React imports
 import React from 'react';
+
+//MISC
 import './App.css';
-import { connect } from 'react-redux';
-import { getStocks } from './store/actions';
 import Dashboard from './components/dashboard';
+import EnableUnsafescript from './components/EnableUnsafescript';
 
-const mapStateToProps = state => {
-  return { stocks: state.stocks };
-}
-class ConnectedApp extends React.Component {
+class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount = () => {
-    this.connection = new WebSocket('ws://stocks.mnet.website');
-    this.connection.onmessage = this.connectionworking;
-
+  state = {
+    hasError: false
   }
 
-  connectionworking = (message) => {
-
-    var stocksArr =  JSON.parse(message.data);
-    this.props.getStocks(stocksArr);
+  // In case of error, updating the local component state.
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
   }
 
   render() {
-
+    //If error occured, render fallback UI.
+    if (this.state.hasError) {
+      return <EnableUnsafescript />;
+    }
     return (
       <Dashboard />
     );
   }
 }
-
-const App = connect(mapStateToProps, { getStocks })(ConnectedApp);
 
 export default App;
