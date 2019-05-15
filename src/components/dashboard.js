@@ -5,104 +5,55 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import StockRow from './stockRow';
-
-// const mapStateToProps = state => {
-//     return { stocks: state.stocks }
-// };
-
-
-// const Dashboard = (props) => (
-//     <div>
-//         {/* <ul>
-//        {stocks.map(stock => (
-//             <li>
-//                 {stock}
-//             </li>
-//         ))}
-//     </ul> */}
-
-{/* <Paper>
-    <Table>
-        <TableHead>
-            <TableRow>
-                <TableCell>Stocks</TableCell>
-                <TableCell>Prices</TableCell>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-            {props.map(stock => (
-                // stock.map(iter => (
-                //     <TableRow>
-                //         <TableCell>{iter}</TableCell>
-                //     </TableRow>
-                // ))
-
-               <TableRow>
-                   <TableCell>{stock}</TableCell>
-               </TableRow>
-            ))}
-
-        </TableBody>
-    </Table>
-</Paper> */}
-
-
-
-//     </div>
-
-// )
-
-// const Dashboard = connect(mapStateToProps)(connectedDashboard);
-
-// export default Dashboard;
+import Card from '@material-ui/core/Card';
 
 const mapStateToProps = state => {
     return { stocks: state.stocks }
 };
 
+const table = {
+    width: '600px',
+    margin: '0 auto',
+    marginTop: '30px',
+    marginBottom: '30px',
+    border: '5px solid grey'
+  };
+
+const card = { 
+    margin: '0 auto',
+    width: '600px',
+    marginTop: '30px',
+    marginBottom: '30px',
+    maxHeight: '80%'
+}
+
 class ConnectedDashboard extends React.Component {
 
     constructor(props) {
         super(props);
-        // debugger;
-        // console.log('PROPS IN DASHBOARD = =====', this.props.stocks);
+        
     }
 
     render() {
         var stocks = this.props.stocks;
         var stocksObj = {};
-        var stockNames = [];
-        var stockPrices = [];
-        // console.log('PROPS IN DASHBOARD = =====', stocks);
         stocks.forEach(arr => {
             stocksObj[arr[0]] = arr[1];
         });
-        console.log('PROPS IN DASHBOARD object = =====', stocksObj);
-        for (let key in stocksObj) {
-            // console.log(`${key} ==> ${stocksObj[key]}`)
-            stockNames.push(key);
-            stockPrices.push(stocksObj[key])
-            // console.log('name =====',stockNames);
-            // console.log('prices =====',stockPrices);
+        // console.log('PROPS IN DASHBOARD object = =====', stocksObj);
 
-        }
         return (
-        
-
-
-            
+        <div  style = { card }>
+           <Card>
                  <Table>
                     <TableHead>
                         <TableRow>
                             <TableCell>Stocks</TableCell>
-                            <TableCell>Prices</TableCell>
+                            <TableCell align='right'>Prices</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
-                            <TableCell>
                                 {Object.keys(stocksObj).map((stockName, index) => {
                                     let stockPrice = stocksObj[stockName];
                                     return (
@@ -110,13 +61,12 @@ class ConnectedDashboard extends React.Component {
                                             stockPrice={stockPrice}
                                         />
                                     )
-                                })}
-                            </TableCell>
-                        </TableRow>
+                                })}                       
                     </TableBody>
                 </Table>
-            
-
+                </Card>
+       
+                </div>
         );
     }
 }

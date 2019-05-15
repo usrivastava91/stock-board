@@ -1,8 +1,8 @@
 const initState = {
-    stocks : []
+    stocks: []
 }
 
-const rootReducer = (state = initState, action) => {
+ const rootReducer = (state = initState, action) => {
 
     switch (action.type) {
         case ('GET_STOCKS'):

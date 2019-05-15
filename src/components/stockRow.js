@@ -1,13 +1,13 @@
 import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 const StockRow = ((props) => {
-    console.log('MILEEEE===============>', props)
     return (
-        <div>
+        <TableRow>
             <TableCell>{props.stockName}</TableCell>
-            <TableCell>{props.stockPrice}</TableCell>
-        </div>
+            <TableCell align='right'>{props.stockPrice}</TableCell>
+        </TableRow>
     )
 }
 )
