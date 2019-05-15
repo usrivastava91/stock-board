@@ -1,0 +1,29 @@
+.containerDiv {
+    display: flex;
+    align-items : center;
+    justify-content: center;    
+}
+
+.card {
+    width: 600px;
+    max-height: 80vh;
+    overflow-y: scroll !important; 
+    margin-top: 10vh;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.font-robot-mono {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+}
+.card::-webkit-scrollbar { 
+    display: none; 
+} 
+
+.header {
+    position: sticky;
+    top: 0px;
+    background: #F7F7F7;
+
+}
+
