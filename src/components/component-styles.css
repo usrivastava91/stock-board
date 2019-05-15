@@ -1,3 +1,6 @@
+
+/* Common styling sheet for all the Components . Contains util classes as well*/
+
 .container-div {
     display: flex;
     align-items : center;
@@ -32,4 +35,19 @@
     padding: 20px;
     font-family: 'Roboto Mono', monospace;
     background: #F7F7F7;
+}
+
+.green{
+    color: green !important;
+}
+.red{
+    color: red !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
 }

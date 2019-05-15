@@ -35,6 +35,8 @@ const initState = {
             return { ...state, stocks: {...state.stocks, ...obj} }
 
     }
+     
+    
     return state;
 }
 
