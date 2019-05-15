@@ -13,7 +13,7 @@ class ConnectedApp extends React.Component {
     super(props);
   }
   componentDidMount = () => {
-    this.connection = new WebSocket('ws://stocks.mnet.website');
+    this.connection = new WebSocket('wss://stocks.mnet.website');
     this.connection.onmessage = this.connectionworking;
 
   }
