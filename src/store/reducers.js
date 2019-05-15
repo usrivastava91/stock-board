@@ -7,7 +7,7 @@ const initState = {
     switch (action.type) {
         case ('GET_STOCKS'):
             let stockObj = {};
-            //Getting the time from App component as payload to maintain the purity of the Reducer ( Redux Principles FTW!!)
+            //Getting the time from App component as payload to maintain the purity of the Reducer ( Redux Principles )
             let currentTime = action.payload.time;
             action.payload.stocks.forEach(element => {
                 let stockName = element[0];
