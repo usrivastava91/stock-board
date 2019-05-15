@@ -54,7 +54,7 @@ class ConnectedDashboard extends React.Component {
                         <TableBody>
                             {/* Segregating the properties from the stock to render them. */}
                             {Object.keys(stocks).map((stockName, index) => {
-                                let stockPrice = stocks[stockName].value;
+                                let stockPrice = (stocks[stockName].value).toFixed(2);
                                 let lastUpdated = stocks[stockName].lastUpdated/1000; //(converting milliseconds to seconds)
                                 let status = stocks[stockName].status;
                                 let durationPassed = lastUpdated < 60 ? Math.round(lastUpdated) + ' seconds ago': 'A few minutes ago'
