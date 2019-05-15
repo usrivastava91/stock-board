@@ -1,3 +1,3 @@
-export const getStocks = (payload)=>{
-    return { type: 'GET_STOCKS', payload }
+export const getStocks = (stocks, time)=>{
+    return { type: 'GET_STOCKS', payload: {stocks, time} }
 };

@@ -33,17 +33,13 @@ class ConnectedDashboard extends React.Component {
     // Dispatching the action(getSockets) with the data recieved from the websocket, to update the state.
     getAllStock = (stocks) => {
         var stocksArr = JSON.parse(stocks.data);
-        this.props.getStocks(stocksArr);
+        let currentTime = new Date().getTime();
+        this.props.getStocks(stocksArr, currentTime );
     }
 
     //updating stockObj with the names and prices of the stocks from the updated state, and rendering them.
     render() {
         var stocks = this.props.stocks;
-        var stocksObj = {};
-        stocks.forEach(arr => {
-            stocksObj[arr[0]] = arr[1];
-        });
-
         return (
             <div className='container-div' >
                 <Card className='card' >
@@ -55,8 +51,8 @@ class ConnectedDashboard extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {Object.keys(stocksObj).map((stockName, index) => {
-                                let stockPrice = stocksObj[stockName];
+                            {Object.keys(stocks).map((stockName, index) => {
+                                let stockPrice = stocks[stockName].value;
                                 return (
                                     <StockRow key={index} stockName={stockName}
                                         stockPrice={stockPrice}
