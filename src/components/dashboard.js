@@ -32,14 +32,14 @@ class ConnectedDashboard extends React.Component {
 
     // Dispatching the action( getSockets) with the data recieved from the websocket, to update the state.
     getAllStock = (stocks) => {
-        var stocksArr = JSON.parse(stocks.data);
+        let stocksArr = JSON.parse(stocks.data);
         let currentTime = new Date().getTime();
         this.props.getStocks(stocksArr, currentTime );
     }
 
     //Passing the updated Stocks data from the state to the component.
     render() {
-        var stocks = this.props.stocks;  
+        let stocks = this.props.stocks;  
         return (
             <div className='container-div' >
                 <Card className='card' >
