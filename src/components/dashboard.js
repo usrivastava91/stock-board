@@ -42,16 +42,16 @@ class ConnectedDashboard extends React.Component {
         let stocks = this.props.stocks;  
         return (
             <div className='container-div' >
-                <Card className='card' >
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell className='header'>Stocks</TableCell>
-                                <TableCell className='header' align='right'>Prices</TableCell>
-                                <TableCell className='header' align='right'>Updated</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
+                <Card className='card nes-table-responsive' >
+                    <table class="nes-table is-bordered is-centered is-dark">
+                        <thead>
+                            <tr>
+                                <th >Stocks</th>
+                                <th >Prices</th>
+                                <th >Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             {/* Segregating the properties from the stock to render them. */}
                             {Object.keys(stocks).map((stockName, index) => {
                                 let stockPrice = (stocks[stockName].value).toFixed(2);
@@ -66,8 +66,8 @@ class ConnectedDashboard extends React.Component {
                                     />
                                 )
                             })}
-                        </TableBody>
-                    </Table>
+                        </tbody>
+                    </table>
                 </Card>
             </div>
 

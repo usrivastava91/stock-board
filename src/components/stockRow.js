@@ -14,8 +14,8 @@ import './component-styles.css'
 const StockRow = ((props) => {
     // Getting the status to apply appropriate conditional styling
     let status = props.status;
-    return ( <TableRow className = 'font-robot-mono' >
-                <TableCell className = {
+    return ( <tr className = 'font-p2play' >
+                <td className = {
                     `${status === 'rise' ? 'green': ''}
                     ${status === 'fall' ? 'red': ''}
                     ${status === 'same' ? '': ''}`
@@ -25,15 +25,15 @@ const StockRow = ((props) => {
                         <TrendingFlat className = {`${status === 'same'? 'visible': 'hidden'}`}/>
                         <TrendingUp  className = {`${status === 'rise'? 'visible': 'hidden'}`}/>
                     </div>
-                </TableCell> 
-                <TableCell align = 'right'> {
+                </td> 
+                <td align = 'right'> {
                     props.stockPrice
-                }</TableCell> 
-                <TableCell align = 'right'> {
+                }</td> 
+                <td align = 'right'> {
                     props.durationPassed
                 } 
-                </TableCell> 
-            </TableRow>
+                </td> 
+            </tr>
     )
 })
 

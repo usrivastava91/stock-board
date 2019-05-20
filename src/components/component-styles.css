@@ -8,15 +8,20 @@
 }
 
 .card {
-    width: 600px;
+    /* width: 600px; */
     max-height: 80vh;
     overflow-y: scroll !important; 
     margin-top: 10vh;
+    border: 2px solid black;
 }
 
 .font-robot-mono {
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
+}
+
+.font-p2play {
+    font-family: 'Press Start 2P', cursive;
 }
 .card::-webkit-scrollbar { 
     display: none; 
@@ -33,8 +38,14 @@
     width: 500px;
     margin-top: 50px;
     padding: 20px;
-    font-family: 'Roboto Mono', monospace;
-    background: #F7F7F7;
+}
+
+.flex-universal-align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 .green{
