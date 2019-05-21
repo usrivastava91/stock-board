@@ -1,17 +1,25 @@
 
 /* Common styling sheet for all the Components . Contains util classes as well*/
-
+@keyframes disco {
+    0%   { background-color: blue; }
+     49% { background-color: red; }
+     50% { background-color: yellow; }
+     99% { background-color: red; }
+     100% { background-color: blue; }
+   }
 .container-div {
     display: flex;
     align-items : center;
     justify-content: center;    
+    width: 100vw;
+    height: 100vh;
+    animation: disco 4s infinite;
 }
 
 .card {
     /* width: 600px; */
     max-height: 80vh;
     overflow-y: scroll !important; 
-    margin-top: 10vh;
     border: 2px solid black;
 }
 
